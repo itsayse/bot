@@ -22,10 +22,11 @@ jobs:
           cache: maven
 
       - name: Build JAR
+        working-directory: nighttreefeller
         run: mvn -B clean package
 
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
           name: NightTreeFeller
-          path: target/*.jar
+          path: nighttreefeller/target/*.jar
