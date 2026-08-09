@@ -1,0 +1,34 @@
+name: PerfectTeams
+version: '1.0.0'
+main: com.perfectone.teams.TeamsPlugin
+api-version: '1.20'
+author: PerfectOne
+description: Team creation, PvP scoring, bounty and rank system with Discord bridge.
+
+commands:
+  team:
+    description: Manage your team
+    usage: /team <create|join|leave|disband|color|info|list> [args]
+    aliases: [t]
+  leaderboard:
+    description: View the top teams by score
+    usage: /leaderboard
+    aliases: [lb, teamtop]
+  bounty:
+    description: View the top 10 players by bounty
+    usage: /bounty
+    aliases: [bountytop]
+
+permissions:
+  teams.command.team:
+    description: Allows use of /team
+    default: true
+  teams.command.leaderboard:
+    description: Allows use of /leaderboard
+    default: true
+  teams.command.bounty:
+    description: Allows use of /bounty
+    default: true
+  teams.admin:
+    description: Bypasses team ownership checks (disband/color/rename any team)
+    default: op
