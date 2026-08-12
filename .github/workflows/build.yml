@@ -1,26 +1,35 @@
-name: Build PerfectTeams
+name: Build Freeze
+
 on:
   push:
     branches:
       - main
   pull_request:
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
           cache: maven
+
       - name: Build JAR
         run: mvn -B clean package
+
+      - name: Rename JAR
+        run: mv target/*.jar target/Freeze.jar
+
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
-          name: PerfectTeams
-          path: target/PerfectTeams.jar
+          name: Freeze
+          path: target/Freeze.jar
