@@ -1,0 +1,20 @@
+name: FreezePlugin
+version: '1.0.0'
+main: com.example.freeze.FreezePlugin
+api-version: '1.20'
+author: YourServer
+
+commands:
+  freeze:
+    description: Fully lock a player down (no movement, actions, or commands) and black out their screen.
+    usage: /freeze <player> [reason...]
+    permission: staff.freeze
+  unfreeze:
+    description: Release a frozen player.
+    usage: /unfreeze <player>
+    permission: staff.freeze
+
+permissions:
+  staff.freeze:
+    description: Allows freezing and unfreezing players
+    default: op
